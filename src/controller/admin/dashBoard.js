@@ -26,7 +26,7 @@ module.exports = class extends think.Controller {
   // 每日访客
   async getDailyVisitorAction() {
     let dailyVisitor = await this.model("visitTimes")
-      .order("id DESC")
+      .order("id")
       .select();
     let data = {
       dailyVisitor: dailyVisitor
