@@ -1,7 +1,6 @@
 // default config
 module.exports = {
   workers: 1,
-  port: 8000,
   jwt: {
     secret: "123456789",
     cookie: "jwt-token",
