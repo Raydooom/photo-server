@@ -107,7 +107,7 @@ module.exports = class extends think.Model {
   // 精选相关
   async getDailyList(page, pageSize) {
     let model = this.model("one_list");
-    let result = await model.order('sort ASC').page(page, pageSize).countSelect();
+    let result = await model.order('create_date ASC').page(page, pageSize).countSelect();
     return result;
   }
   // 点赞、下载统计
