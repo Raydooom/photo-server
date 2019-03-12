@@ -24,9 +24,9 @@ module.exports = class extends think.Controller {
       content,
       from,
       img_url,
-      day: day.getUTCDate(),
-      month: day.getUTCMonth() + 1,
-      year: day.getUTCFullYear(),
+      day: day.getDate(),
+      month: day.getMonth() + 1,
+      year: day.getFullYear(),
       create_date: think.datetime(currentTime),
       update_date: think.datetime(currentTime),
       sort: sort
