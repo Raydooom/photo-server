@@ -1,16 +1,16 @@
 module.exports = class extends think.Controller {
-  // __before() {
-  //   if (!this.isCli) return this.fail(1000, "拒绝访问");
-  // }
+  __before() {
+    if (!this.isCli) return this.fail(1000, "拒绝访问");
+  }
   // 每天添加一条每日访客记录
   async addDailyVisitorAction() {
-    let day = think.datetime(new Date(), "YYYY-MM-DD HH:mm:ss");
-    let times = parseInt(Math.random() * 10);
-    let users = parseInt(Math.random() * 8);
+    // 设置session储存当天进入用户的ip
+    this.session("ips",[])
+    let day = think.datetime(new Date(), "YYYY-MM-DD");
     let cliRes = await this.model("visitTimes").add({
       day: day,
-      times: times,
-      users_count: users
+      times: 0,
+      users_count: 0
     });
   }
   // 获取one内容

@@ -1,15 +1,8 @@
-
 const jwt = require('jsonwebtoken');
 
 module.exports = class extends think.Controller {
-  // constructor(){
-  //   super();
-    
-  //   console.log(this)
-  // }
   // 登录校验
   async __before() {
-    console.log()
     let token = this.header("token");
     if (token) {
       let userId = this.verifyUserId(token);
