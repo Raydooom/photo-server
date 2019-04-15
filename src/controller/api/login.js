@@ -18,7 +18,6 @@ module.exports = class extends think.Controller {
     }
     let loginInfo = await request(options);
     let openid = JSON.parse(loginInfo).openid;
-
     const result = await this.model('api/index').getUser({ openid: openid });
     if (result.id) {
       this.cache("currentUserId", result.id);

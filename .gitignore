@@ -36,7 +36,6 @@ app/
 uploadImg/
 
 config.development.js
-adapter.development.js
 adapter.js
 
 .vscode
