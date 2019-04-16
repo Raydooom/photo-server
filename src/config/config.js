@@ -10,5 +10,6 @@ module.exports = {
     appId: "wx2984c3354dfc51d6",
     appSecret: "97edbc9d20107e9ad1fc9fc466d1c4b8"
   },
-  oneUrl: "http://wufazhuce.com/"
+  oneUrl: "http://wufazhuce.com/",
+  SERVER_HOST: "http://localhost:8360"
 };

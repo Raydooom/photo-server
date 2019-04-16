@@ -5,6 +5,7 @@ module.exports = class extends think.Controller {
     let day = think.datetime(new Date(), "YYYY-MM-DD");
     console.log(day);
     let ips = (await this.session("ips")) || [];
+    console.log(ips,this.ip,'ip')
     if (!ips.includes(this.ip)) {
       ips.push(this.ip);
       this.session("ips", ips);
