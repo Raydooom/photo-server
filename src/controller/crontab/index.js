@@ -15,7 +15,7 @@ module.exports = class extends think.Controller {
   }
   // 获取one内容
   async getOneWebAction() {
-    let res = await think.service("one").getOne();
+    let res = await think.service("spiders").getOne();
     let currentTime = new Date();
     let { content, from, img_url, date } = res;
     let day = date ? new Date(date) : new Date();
