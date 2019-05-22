@@ -54,35 +54,4 @@ module.exports = class extends think.Model {
     return result;
   }
 
-  // 精选相关
-  // 添加
-  async addDaily(data) {
-    let model = this.model("daily");
-    let result = await model.add(data);
-    return result;
-  }
-  // 获取列表
-  async getDailyList(page, pageSize) {
-    let model = this.model("daily");
-    let result = await model.page(page, pageSize).countSelect();
-    return result;
-  }
-  // 删除
-  async delDaily(condition) {
-    let model = this.model("daily");
-    let result = await model.where(condition).delete();
-    return result;
-  }
-  // 获取详情
-  async getDaily(condition) {
-    let model = this.model("daily");
-    let result = await model.where(condition).find();
-    return result;
-  }
-  // 更新
-  async updateDaily(condition, data) {
-    let articleModel = this.model("daily");
-    let result = await articleModel.where(condition).update(data);
-    return result;
-  }
 }

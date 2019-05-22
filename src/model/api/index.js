@@ -103,23 +103,4 @@ module.exports = class extends think.Model {
     let result = await userModel.where(condition).select();
     return result;
   }
-
-  // 精选相关
-  async getDailyList(page, pageSize) {
-    let model = this.model("one_list");
-    let result = await model.order('id DESC').page(page, pageSize).countSelect();
-    return result;
-  }
-  // 点赞、下载统计
-  async updateDaily(condition, data) {
-    let articleModel = this.model("one_list");
-    let result = await articleModel.where(condition).update(data);
-    return result;
-  }
-  // 精选详情
-  async getDaily(condition) {
-    let articleModel = this.model("one_list");
-    let result = await articleModel.where(condition).find();
-    return result;
-  }
 };

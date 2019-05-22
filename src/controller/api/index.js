@@ -139,26 +139,26 @@ module.exports = class extends think.Controller {
   // 每日精选
   async getDailyListAction() {
     let { page, pageSize } = this.post();
-    const result = await this.model('api/index').getDailyList(page, pageSize);
+    const result = await this.model("daily").order('id DESC').page(page, pageSize).countSelect();
     this.success(result, "获取精选列表成功")
   }
 
   // 每日精选点赞
   async dailyPraiseAction() {
     let { id, praises } = this.post();
-    const result = await this.model('api/index').updateDaily({ id }, { praises });
+    const result = await this.model("daily").where({id}).update(praises);
     this.success(result, "点赞统计成功")
   }
   // 下载统计
   async dailyDownloadAction() {
     let { id, download } = this.post();
-    const result = await this.model('api/index').updateDaily({ id }, { download });
+    const result = await this.model("daily").where({id}).update(download);
     this.success(result, "下载统计成功")
   }
   // 根据id获取每日精选内容
   async getDailyAction() {
     let { id } = this.post();
-    const result = await this.model('api/index').getDaily({ id });
+    const result = await this.model("daily").where({id}).find();
     this.success(result, "获取精选详情成功")
   }
 }
