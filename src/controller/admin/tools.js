@@ -9,14 +9,14 @@ module.exports = class extends think.Controller {
     }
   }
   // 从公众号同步文章
-  async getWechatArticleAction(){
-    const { url, kind, homeShow, description} = this.post();
+  async asyncWechatArticleAction(){
+    const { url, kind, coverUrl, homeShow, description} = this.post();
     let res = await think.service("spiders").getContent(url);
     let currentTime = new Date();
     let { title, cover_img, content } = res;
     let data = {
       article_title: title,
-      cover_img: cover_img,
+      cover_img: coverUrl || cover_img,
       kind_id: kind || 1,
       home_show: homeShow || 1,
       description: description || "",
