@@ -199,7 +199,7 @@ module.exports = class extends think.Controller {
   async getDailyAction() {
     let { id } = this.post();
     const result = await this.model("daily")
-      .where(condition)
+      .where({id})
       .find();
     this.success(result, "获取精选成功");
   }
