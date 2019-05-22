@@ -190,7 +190,7 @@ module.exports = class extends think.Controller {
   async delDailyAction() {
     let { id } = this.post();
     const result = await this.model("daily")
-      .where(condition)
+      .where({id})
       .delete();
     this.success(result, "删除精选成功");
   }
@@ -221,7 +221,7 @@ module.exports = class extends think.Controller {
       sort
     };
     sort;
-    const result = await this.model("daily").updateDaily({ id: id }, data);
+    const result = await this.model("daily").where({id}).update(data);
     this.success(result, "更新精选成功");
   }
 };

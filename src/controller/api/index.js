@@ -146,13 +146,13 @@ module.exports = class extends think.Controller {
   // 每日精选点赞
   async dailyPraiseAction() {
     let { id, praises } = this.post();
-    const result = await this.model("daily").where({id}).update(praises);
+    const result = await this.model("daily").where({id}).update({praises});
     this.success(result, "点赞统计成功")
   }
   // 下载统计
   async dailyDownloadAction() {
     let { id, download } = this.post();
-    const result = await this.model("daily").where({id}).update(download);
+    const result = await this.model("daily").where({id}).update({download});
     this.success(result, "下载统计成功")
   }
   // 根据id获取每日精选内容
