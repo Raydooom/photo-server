@@ -1,3 +1,5 @@
+const os = require("os");
+const process = require("process");
 module.exports = class extends think.Controller {
   // 统一登录校验
   __before() {
@@ -8,6 +10,20 @@ module.exports = class extends think.Controller {
       return false;
     }
   }
+  /**
+   * 获取cpu信息
+   */
+  async getServerInfoAction() {
+    const osInfo ={
+      totalmem: os.totalmem(),
+      freemem: os.freemem(),
+    }
+    this.success(osInfo, "服务器信息");
+  }
+  /**
+   * 获取内存信息
+   */
+
   // 基本数据
   async getDashBoardAction() {
     let articleCount = await this.model("article_list").count("id");
