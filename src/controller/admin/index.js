@@ -181,7 +181,7 @@ module.exports = class extends think.Controller {
   async getDailyListAction() {
     let { page, pageSize } = this.post();
     const result = await this.model("daily")
-      .page(page, pageSize)
+      .page(page, pageSize).order('id DESC')
       .countSelect();
     this.success(result, "获取精选列表成功");
   }

@@ -31,7 +31,7 @@ module.exports = class extends think.Controller {
       update_date: think.datetime(currentTime),
       sort: sort
     };
-    const result = await this.model("one_list").add(data);
+    const result = await this.model("daily").add(data);
     think.logger.info(
       "从one获取数据成功插入数据库，插入时间",
       think.datetime(currentTime)

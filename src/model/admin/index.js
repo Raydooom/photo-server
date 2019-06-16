@@ -2,7 +2,7 @@ module.exports = class extends think.Model {
   // 获取文章列表
   async getArticleList(page, pageSize) {
     let articleModel = this.model("article_list");
-    let result = await articleModel.page(page, pageSize).countSelect();
+    let result = await articleModel.page(page, pageSize).order('id DESC').countSelect();
     return result;
   }
   // 获取分类列表

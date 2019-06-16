@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 module.exports = class extends think.Service {
   // 抓取one每日一句话
   async getOne() {
-    let res = await request.req(think.config("oneUrl"), "GET");
+    let res = await request(think.config("oneUrl"), "GET");
     let $ = cheerio.load(res.text);
     let todayOneList = $("#carousel-one .carousel-inner .item");
     let text = $(todayOneList[0])
@@ -25,7 +25,7 @@ module.exports = class extends think.Service {
   // 根据链接抓取公众号文章内容
   async getContent(url) {
     // 获取每日一句
-    let res = await request.req(url, "GET");
+    let res = await request(url, "GET");
     let $ = cheerio.load(res.text);
     let article = $("#img-content");
     let title = $(article[0])
