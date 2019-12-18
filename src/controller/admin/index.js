@@ -181,7 +181,8 @@ module.exports = class extends think.Controller {
   async getDailyListAction() {
     let { page, pageSize } = this.post();
     const result = await this.model("daily")
-      .page(page, pageSize).order('id DESC')
+      .page(page, pageSize)
+      .order("id DESC")
       .countSelect();
     this.success(result, "获取精选列表成功");
   }
@@ -190,7 +191,7 @@ module.exports = class extends think.Controller {
   async delDailyAction() {
     let { id } = this.post();
     const result = await this.model("daily")
-      .where({id})
+      .where({ id })
       .delete();
     this.success(result, "删除精选成功");
   }
@@ -199,7 +200,7 @@ module.exports = class extends think.Controller {
   async getDailyAction() {
     let { id } = this.post();
     const result = await this.model("daily")
-      .where({id})
+      .where({ id })
       .find();
     this.success(result, "获取精选成功");
   }
@@ -220,8 +221,18 @@ module.exports = class extends think.Controller {
       update_date: think.datetime(currentTime),
       sort
     };
-    sort;
-    const result = await this.model("daily").where({id}).update(data);
+    const result = await this.model("daily")
+      .where({ id })
+      .update(data);
     this.success(result, "更新精选成功");
+  }
+
+  /**
+   * vlog接口
+   * 上传视频
+   */
+  async uploadVideoAction() {
+    let file = this.file("file");
+    console.log(file);
   }
 };
