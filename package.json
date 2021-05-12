@@ -16,7 +16,7 @@
     "exifreader": "^2.8.2",
     "gm": "^1.23.1",
     "koa-jwt": "^3.5.1",
-    "nodemailer": "^6.2.1",
+    "nodemailer": "^6.4.16",
     "request-promise": "^4.2.2",
     "superagent": "^4.1.0",
     "think-cache": "^1.0.0",
