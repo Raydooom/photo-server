@@ -15,7 +15,7 @@
     "cheerio": "^1.0.0-rc.2",
     "exifreader": "^2.8.2",
     "gm": "^1.23.1",
-    "koa-jwt": "^3.5.1",
+    "koa-jwt": "^4.0.4",
     "nodemailer": "^6.2.1",
     "request-promise": "^4.2.2",
     "superagent": "^4.1.0",
